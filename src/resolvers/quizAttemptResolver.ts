@@ -15,13 +15,11 @@ module.exports = {
   Mutation: {
     async createQuizAttempt(_: any, { newQuizAttempt }: any) {
       const { topic, answers } = newQuizAttempt;
-      // todo validate answers and calculate score before saving
+      // validate answers and calculate score before saving
       const { userScore, returnAnswers, statements } = await validateAnswers(
         topic,
         answers
       );
-
-      console.log(userScore);
 
       const attemptToSave = new QuizAttempt({
         topic,

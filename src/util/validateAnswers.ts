@@ -11,7 +11,6 @@ module.exports = async (topic: string, answers) => {
 
   for (let i = 0; i < answers.length; i += 1) {
     const { question, userAnswer } = answers[i];
-    console.log("question: ", question);
     const { correctAnswer, statement } = questions.find(
       (obj) => obj.question === question
     ).toObject();
@@ -29,7 +28,6 @@ module.exports = async (topic: string, answers) => {
     returnAnswers.push(returnAnswerObject);
     statements.push(statement);
   }
-  console.log(returnAnswers);
   return {
     userScore,
     returnAnswers,
